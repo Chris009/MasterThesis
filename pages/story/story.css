@@ -1,0 +1,8 @@
+﻿.map {
+   position: absolute;
+   top: 20;
+   left: 10;
+   width: 800px;
+   height: 700px;
+   border:#555555 2px solid;
+}
