@@ -24,17 +24,18 @@ function getMap() {
             mapTypeId: Microsoft.Maps.MapTypeId.road
         });
         //============================== Push Pins    // Retrieve the location of the map center 
-    var center = map.getCenter();
+    
+    var location = new Microsoft.Maps.Location(49.4859215, 8.4643577);
             
     // Add a pin to the center of the map
-    var pin = new Microsoft.Maps.Pushpin(center, {text: '1'}); 
+    var pin = new Microsoft.Maps.Pushpin(location, {text: 'S'}); 
 
     // Create the infobox for the pushpin
     pinInfobox = new Microsoft.Maps.Infobox(pin.getLocation(), 
-        {title: 'My Pushpin', 
-            description: 'This pushpin is located at (0,0).', 
+        {title: 'Café Sammo', 
+            
             visible: false, 
-            offset: new Microsoft.Maps.Point(0,15)});
+            });
 
     // Add handler for the pushpin click event.
     Microsoft.Maps.Events.addHandler(pin, 'click', displayInfobox);
@@ -46,6 +47,9 @@ function getMap() {
     // Add the pushpin and infobox to the map
     map.entities.push(pin);
     map.entities.push(pinInfobox);
+
+
+    
 
 }
 
