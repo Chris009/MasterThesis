@@ -6,3 +6,33 @@
    height: 700px;
    border:white 2px solid;
 }
+
+.pushpin{
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    height:25px;
+    color:white;
+    background-color:rgba(0,0,0,0.8);
+    width: 90px;
+    text-align: center;
+    line-height:25px;
+    white-space:nowrap
+    
+}
+
+
+.pushpin:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "  ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	
+	border-right-color: rgba(0,0,0,0.8);
+	border-width: 12.5px;
+	margin-top: -13px;
+}
