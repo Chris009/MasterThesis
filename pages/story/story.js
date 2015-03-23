@@ -1,4 +1,16 @@
-﻿var map = null;
+﻿
+var map = null;
+
+
+
+
+function sammoNav() {
+   
+    window.location.replace('Games/SammoGame/sammo.html');
+  
+}
+
+
 
 function getMap() {
 
@@ -38,9 +50,11 @@ function getMap() {
     // Create the infobox for the pushpin
     pinInfobox = new Microsoft.Maps.Infobox(pin.getLocation(), 
         {title: 'Café Sammo', 
-            text:'',
+        description:'Infobox description', actions:[{label: 'GoTo Game', eventHandler: sammoNav}],
             visible: false, 
             });
+
+
 
     // Add handler for the pushpin click event.
     Microsoft.Maps.Events.addHandler(pin, 'click', displayInfobox);
