@@ -55,11 +55,16 @@ function getMap() {
     // Add a pin to the center of the map
     var pin = new Microsoft.Maps.Pushpin(locationSammo, pinOptions); 
 
+   
+
+
     // Create the infobox for the pushpin
-    pinInfobox = new Microsoft.Maps.Infobox(pin.getLocation(), 
+        pinInfobox = new Microsoft.Maps.Infobox(pin.getLocation(), 
         {title: 'Café Sammo', 
-        description:'Infobox description', actions:[{label: 'GoTo Game', eventHandler: sammoNav}],
-            visible: false, 
+        description: 'Infobox description',
+        actions: [{ label: 'GoTo Game', eventHandler: sammoNav }],
+        visible: false,
+        
             });
 
 

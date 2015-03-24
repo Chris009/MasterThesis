@@ -1,4 +1,8 @@
-﻿var choices = [
+﻿
+
+
+
+var choices = [
     { title: "Cappucino", alk: false, url:"" },
     { title: "Kaffee", alk: false, url: "" },
     { title: "Milchkaffee", alk: false, url: "" },
@@ -10,6 +14,18 @@
     { title: "Apfelsaftschorle", alk: false, url: "" }
 ];
 
+
+function backNav() {
+
+    window.location.replace('../../story.html');
+
+}
+
+function homeNav() {
+
+    window.location.replace('../start/start.html');
+
+}
 
 
 

@@ -16,8 +16,9 @@
 }
 
 .spez:hover {
-        font-size: 1.5em;
+        /*font-size: 1.5em;*/
         color:white !important;
+        background-color: rgba(255,255,255,0.1);
     }
 
 
