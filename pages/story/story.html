@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=de-de"></script>
-
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
     <link href="../../default/default.css" rel="stylesheet" />
 
     <script src="story.js"></script>
@@ -13,8 +13,22 @@
 </head>
 <body onload="getMap()">
 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" onclick="homeNav()" class="navbutton" aria-label="Left Align">
+                    <span class="navicon glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+                <button type="button" onclick="homeNav()" class="navbutton" aria-label="Left Align">
+                    <span class="navicon glyphicon glyphicon-home" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
     <div id='myMap' class="map"></div>
-  
+
 
     <script src="../../Scripts/jquery-1.9.1.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>

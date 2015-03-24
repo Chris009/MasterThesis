@@ -5,7 +5,7 @@
     left: 10%;
 }
 
-button{
+.spez{
     height: 50px;
     width: calc(100% - 40px);
     margin: 20px;
@@ -15,8 +15,9 @@ button{
     border: 1px solid white !important;
 }
 
-
-    button:hover {
+.spez:hover {
         font-size: 1.5em;
         color:white !important;
     }
+
+

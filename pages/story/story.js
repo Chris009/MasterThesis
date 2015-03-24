@@ -4,6 +4,14 @@ var map = null;
 
 
 
+function homeNav() {
+   
+    window.location.replace('../start/start.html');
+  
+}
+
+
+
 function sammoNav() {
    
     window.location.replace('Games/SammoGame/sammo.html');
