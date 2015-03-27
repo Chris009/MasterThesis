@@ -14,6 +14,8 @@
     height: 900px;
     width: 900px;
     position:absolute;
+    border: 2px solid white;
+    background: rgba(0,0,0,0.8);
 }
 
 .img1{

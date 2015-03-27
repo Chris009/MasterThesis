@@ -3,7 +3,7 @@
 var choices = [
     { title: "Cappucino", alk: false, url: "/../../../../img/drinks/Cappuccino.jpg" },
     { title: "Kaffee", alk: false, url: "/../../../../img/drinks/kaffeSchwarz.JPG" },
-    { title: "Milchkaffee", alk: false, url: "" },
+    { title: "Long Drink", alk: false, url: "/../../../../img/drinks/longDrink.jpg" },
     { title: "Latte Macchiato", alk: false, url: "/../../../../img/drinks/lattemacchiato.png" },
     { title: "Bier", alk: true, url: "/../../../../img/drinks/Bier.jpg" },
     { title: "Cola", alk: false, url: "/../../../../img/drinks/Cola.jpg" },
