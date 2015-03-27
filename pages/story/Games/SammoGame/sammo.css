@@ -1,11 +1,24 @@
 ﻿.choice{
-    height:30px;
-    width:200px;
-    background-color:red;
+    height:280px;
+    width:280px;
+    
     margin:5px;
     
 }
 
 .choice:hover{
     border: 2px solid blue;
+}
+
+.randomBox{
+    height: 900px;
+    width: 900px;
+    position:absolute;
+}
+
+.img1{
+    position:absolute;
+}
+.img2{
+    position:absolute;
 }
