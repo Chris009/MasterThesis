@@ -40,12 +40,24 @@ function gameStart() {
       
         $('.randomBox').append(e);
         
+
+
     }
 }
 
-var y = [1, 2, 2, 3, 2]
-var removeItem = 2;
+function openDoor() {
+    $('.door').addClass('hidden');
+    $('.img1').addClass('hidden');
 
-y = jQuery.grep(y, function (value) {
-    return value != removeItem;
-});
+    $('.order').removeClass('hidden');
+    $('.img2').removeClass('hidden');
+}
+
+function startOrder() {
+    $('.order').addClass('hidden');
+    $('.img2').addClass('hidden');
+
+    $('.randomBox').removeClass('hidden');
+    gameStart()
+}
+
