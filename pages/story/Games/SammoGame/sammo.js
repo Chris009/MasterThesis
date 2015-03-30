@@ -20,7 +20,7 @@ function backNav() {
 
 function homeNav() {
 
-    window.location.replace('../start/start.html');
+    window.location.replace('../../../start/start.html');
 
 }
 
