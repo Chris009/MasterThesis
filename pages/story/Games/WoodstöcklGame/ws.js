@@ -12,7 +12,7 @@ var choices = [
     { title: "Apfelsaftschorle", alk: false, url: "./../../../../img/drinks/Apfelsaftschorle.jpg" }
 ];
 
-function backNav() {http://localhost:5447/../../../../img/drinks/Apfelsaftschorle.jpg
+function backNav() {
 
     window.location.replace('../../story.html');
 
