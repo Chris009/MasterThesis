@@ -24,8 +24,6 @@ function homeNav() {
 
 }
 
-
-
 var j = 0;
 function gameStart() {
     for (var i = choices.length; i >= 1; i--) {

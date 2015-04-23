@@ -18,6 +18,12 @@ function sammoNav() {
   
 }
 
+function wsNav() {
+
+    window.location.replace('Games/WoodstöcklGame/ws.html');
+
+}
+
 
 
 function getMap() {
@@ -46,55 +52,69 @@ function getMap() {
     
     //============================== Push Pins
     // Retrieve the location of the map center 
-    
+    //Sammo
     var locationSammo = new Microsoft.Maps.Location(49.4859215, 8.4643577);
-    var pinOptions = {
+    var sammoPinOptions = {
         width: null, height: null,
         htmlContent: "<div class='pushpin'>Café Sammo</div>"
     };
-    // Add a pin to the center of the map
-    var pin = new Microsoft.Maps.Pushpin(locationSammo, pinOptions); 
+    //Woodstöckl 
+    var locationWs = new Microsoft.Maps.Location(49.4972434, 8.4701803);
+    var wsPinOptions = {
+        width: null, height: null,
+        htmlContent: "<div class='pushpin'>Woodstöckl</div>"
+    };
 
-   
-
+    // Add a pin to the cafe location of the map
+    //Sammo
+    var pinSammo = new Microsoft.Maps.Pushpin(locationSammo, sammoPinOptions); 
+    //Woodstöckl
+    var pinWs = new Microsoft.Maps.Pushpin(locationWs, wsPinOptions);
 
     // Create the infobox for the pushpin
-        pinInfobox = new Microsoft.Maps.Infobox(pin.getLocation(), 
+    //Sammo
+        pinSammoInfobox = new Microsoft.Maps.Infobox(pinSammo.getLocation(), 
         {title: 'Café Sammo', 
         description: 'Infobox description',
         actions: [{ label: 'GoTo Game', eventHandler: sammoNav }],
         visible: false,
-        
-            });
-
-
-
+        });
+    //Woodstöckl
+        pinWsInfobox = new Microsoft.Maps.Infobox(pinWs.getLocation(),
+       {
+           title: 'Woodstöckl',
+           description: 'Infobox description',
+           actions: [{ label: 'GoTo Game', eventHandler: wsNav }],
+           visible: false,
+       });
     // Add handler for the pushpin click event.
-    Microsoft.Maps.Events.addHandler(pin, 'click', displayInfobox);
+    //Sammo
+        Microsoft.Maps.Events.addHandler(pinSammo, 'click', displaySammoInfobox);
+    //Woodstöckl
+        Microsoft.Maps.Events.addHandler(pinWs, 'click', displayWsInfobox);
 
     // Hide the infobox when the map is moved.
-    Microsoft.Maps.Events.addHandler(map, 'viewchange', hideInfobox);
+    //Sammo
+    Microsoft.Maps.Events.addHandler(map, 'viewchange', hideSammoInfobox);
+    //Woodstöckl
+    Microsoft.Maps.Events.addHandler(map, 'viewchange', hideWsInfobox);
 
-
-    // Add the pushpin and infobox to the map
-    map.entities.push(pin);
-    map.entities.push(pinInfobox);
-
-
-    
-
-
+    // Add the pushpins and infobox to the map
+    //Sammo
+    map.entities.push(pinSammo);
+    map.entities.push(pinSammoInfobox);
+    //Woodstöckl
+    map.entities.push(pinWs);
+    map.entities.push(pinWsInfobox);
 }
+//Sammo
+function displaySammoInfobox(e)
+{pinSammoInfobox.setOptions({ visible:true });}                    
+function hideSammoInfobox(e)
+{ pinSammoInfobox.setOptions({ visible: false }); }
 
-function displayInfobox(e)
-{
-    pinInfobox.setOptions({ visible:true });
-}                    
-
-function hideInfobox(e)
-{
-    pinInfobox.setOptions({ visible: false });
-}
-
-
-
+//Woodstöckl
+function displayWsInfobox(e)
+{ pinWsInfobox.setOptions({ visible: true }); }
+function hideWsInfobox(e)
+{ pinWsInfobox.setOptions({ visible: false }); }
