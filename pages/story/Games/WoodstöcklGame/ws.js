@@ -62,14 +62,21 @@ function startOrder() {
 (function () {
     var
         div = $('.imgHolder'),
-        divX = div.width(),
-        divY = div.height(),
-        backgroundX, backgroundY, backgroundPos;
+        divXstart = div.width() * -0.2,
+        divYstart = div.height() * -0.3,
+        divX1 = div.width() * 0.1,
+        divY1 = div.height() * 0.1,
+        divX2 = div.width() * 0.9,
+        divY2 = div.height() * 0.9,
+        backgroundX = divXstart,
+        backgroundY = divYstart,
+        backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
+        div.css('background-position', backgroundPos);
 
 
     // hint
     //  mouse on the right background position for x img = 100%
-    //  mouse on the left background position for x img = 0
+    //  mouse on         the left background position for x img = 0
     //  center background position for x img = 50%
 
     //  mouse on the top background position for y img = 0
@@ -85,10 +92,24 @@ function startOrder() {
 
     $(div).mousemove(function (ev) {
 
-        backgroundX = 1 / divX * ev.clientX * 100;
-        backgroundY = 1 / divY * ev.clientY * 100;
-        backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
-        div.css('background-position', backgroundPos);
+        if ((divX1 > ev.clientX) && (divY1 < ev.clientY) && (backgroundX <= 0 && backgroundY <= 0)) {
+            backgroundX += 10;
+            backgroundY += 10;
+            backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
+            div.css('background-position', backgroundPos);
+        }
+
+
+        if((divX2 < ev.clientX) && (divY2 < ev.clientY) && (backgroundX >= div.width() && backgroundY >= div.height())){
+            backgroundX -= 10;
+            backgroundY -= 10;
+            backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
+            div.css('background-position', backgroundPos);
+        }
+        //backgroundX = 1 / divX * ev.clientX * 100;
+        //backgroundY = 1 / divY * ev.clientY * 100;
+        //backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
+        //div.css('background-position', backgroundPos);
 
     });
 })();
