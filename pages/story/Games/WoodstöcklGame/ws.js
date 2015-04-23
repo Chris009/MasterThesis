@@ -59,3 +59,36 @@ function startOrder() {
     gameStart()
 }
 
+(function () {
+    var
+        div = $('.imgHolder'),
+        divX = div.width(),
+        divY = div.height(),
+        backgroundX, backgroundY, backgroundPos;
+
+
+    // hint
+    //  mouse on the right background position for x img = 100%
+    //  mouse on the left background position for x img = 0
+    //  center background position for x img = 50%
+
+    //  mouse on the top background position for y img = 0
+    //  mouse on the bottom background position for y img = 100%
+    //  center background position for y img = 50%
+
+    // now if
+    //  divX       = 100%
+    //  ev.clientX = x%
+    //  divY       = 100%
+    //  ev.clientY = y%
+    // is what we need
+
+    $(div).mousemove(function (ev) {
+
+        backgroundX = 1 / divX * ev.clientX * 100;
+        backgroundY = 1 / divY * ev.clientY * 100;
+        backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
+        div.css('background-position', backgroundPos);
+
+    });
+})();
