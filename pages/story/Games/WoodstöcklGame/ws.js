@@ -21,58 +21,35 @@ function backNav() {
 function homeNav() {
 
     window.location.replace('../../../start/start.html');
-
+     
 }
 
-var j = 0;
-function gameStart() {
-    for (var i = choices.length; i >= 1; i--) {
-        var choice = choices[Math.floor(Math.random() * choices.length)];
 
-        choices.splice($.inArray(choice, choices), 1);
+var imgPanorama;
 
-        var URL = choice.url;
-        var e = $('<img></img>');
-        e.attr('class', 'choice ' + i);
-        e.attr('src', URL);
-      
-        $('.randomBox').append(e);
-        
-
-
-    }
-}
-
-function openDoor() {
-    $('.door').addClass('hidden');
-    $('.img1').addClass('hidden');
-
-    $('.order').removeClass('hidden');
-    $('.img2').removeClass('hidden');
-}
-
-function startOrder() {
-    $('.order').addClass('hidden');
-    $('.img2').addClass('hidden');
-
-    $('.randomBox').removeClass('hidden');
-    gameStart()
-}
-
-(function () {
+$(document).ready(function () {
+   
+    imgPanorama = $('.imgHolder');
     var
-        div = $('.imgHolder'),
-        divXstart = div.width() * -0.2,
-        divYstart = div.height() * -0.3,
-        divX1 = div.width() * 0.1,
-        divY1 = div.height() * 0.1,
-        divX2 = div.width() * 0.9,
-        divY2 = div.height() * 0.9,
-        backgroundX = divXstart,
-        backgroundY = divYstart,
-        backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-        div.css('background-position', backgroundPos);
 
+        divXstart = parseFloat($(imgPanorama).css('width')) * -0.2,
+        divYstart = parseFloat($(imgPanorama).css('height')) * -0.3,
+        
+        backgroundX = divXstart,
+        backgroundY = divYstart;
+    //backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
+    $('.imgHolder').css('top', backgroundY);
+    $('.imgHolder').css('left', backgroundX);
+
+    var borderTop = 0;
+    var borderLeft = 0;
+    var borderRight = $(window).width();
+    var borderBottom = $(window).height();
+
+    var divX1 = borderRight * 0.1;
+    var divY1 = borderBottom * 0.1;
+    var divX2 = borderRight * 0.9;
+    var divY2 = borderBottom * 0.9;
 
     // hint
     //  mouse on the right background position for x img = 100%
@@ -90,26 +67,32 @@ function startOrder() {
     //  ev.clientY = y%
     // is what we need
 
-    $(div).mousemove(function (ev) {
+    $(imgPanorama).mousemove(function (ev) {
 
-        if ((divX1 > ev.clientX) && (divY1 < ev.clientY) && (backgroundX <= 0 && backgroundY <= 0)) {
+        if ((divX1 > ev.clientX) && (divY1 > ev.clientY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
             backgroundX += 10;
             backgroundY += 10;
             backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-            div.css('background-position', backgroundPos);
+            $('.imgHolder').css('top', backgroundY);
+            $('.imgHolder').css('left', backgroundX);
         }
 
 
-        if((divX2 < ev.clientX) && (divY2 < ev.clientY) && (backgroundX >= div.width() && backgroundY >= div.height())){
+        if((divX2 < ev.clientX) && (divY2 < ev.clientY) ){
             backgroundX -= 10;
             backgroundY -= 10;
             backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-            div.css('background-position', backgroundPos);
+            $('.imgHolder').css('top', backgroundY);
+            $('.imgHolder').css('left', backgroundX);
         }
-        //backgroundX = 1 / divX * ev.clientX * 100;
-        //backgroundY = 1 / divY * ev.clientY * 100;
-        //backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
-        //div.css('background-position', backgroundPos);
+       
+        backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
+        $('.imgHolder').css('top', backgroundY);
+        $('.imgHolder').css('left', backgroundX);
 
     });
-})();
+    
+});
+
+
+
