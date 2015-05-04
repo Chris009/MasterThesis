@@ -21,22 +21,22 @@ function backNav() {
 function homeNav() {
 
     window.location.replace('../../../start/start.html');
-     
+
 }
 
 
 var imgPanorama;
-
+var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
    
     imgPanorama = $('.imgHolder');
-    var
+    
 
-        divXstart = parseFloat($(imgPanorama).css('width')) * -0.2,
-        divYstart = parseFloat($(imgPanorama).css('height')) * -0.3,
+    divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
+    divYstart = parseFloat($(imgPanorama).css('height')) * -0.3;
         
-        backgroundX = divXstart,
-        backgroundY = divYstart;
+    backgroundX = divXstart;
+    backgroundY = divYstart;
     //backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
     $('.imgHolder').css('top', backgroundY);
     $('.imgHolder').css('left', backgroundX);
@@ -48,8 +48,8 @@ $(document).ready(function () {
 
     var divX1 = borderRight * 0.1;
     var divY1 = borderBottom * 0.1;
-    var divX2 = borderRight * 0.9;
-    var divY2 = borderBottom * 0.9;
+    var divX2 = borderRight * 0.7;
+    var divY2 = borderBottom * 0.7;
 
     // hint
     //  mouse on the right background position for x img = 100%
@@ -69,30 +69,49 @@ $(document).ready(function () {
 
     $(imgPanorama).mousemove(function (ev) {
 
-        if ((divX1 > ev.clientX) && (divY1 > ev.clientY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
-            backgroundX += 10;
-            backgroundY += 10;
-            backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-            $('.imgHolder').css('top', backgroundY);
-            $('.imgHolder').css('left', backgroundX);
-        }
+
+        function checkPos() {
+        var valX = ev.clientX;
+        var valY = ev.clientY;
+
+        
+
+            var setInter = setInterval(function () {
+                if ((divX1 > valX) && (divY1 > valY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
+                    backgroundX += 1;
+                    backgroundY += 1;
+
+                    $('.imgHolder').css('top', backgroundY);
+                    $('.imgHolder').css('left', backgroundX);
+                }
 
 
-        if((divX2 < ev.clientX) && (divY2 < ev.clientY) ){
-            backgroundX -= 10;
-            backgroundY -= 10;
-            backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-            $('.imgHolder').css('top', backgroundY);
-            $('.imgHolder').css('left', backgroundX);
-        }
-       
-        backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
-        $('.imgHolder').css('top', backgroundY);
-        $('.imgHolder').css('left', backgroundX);
+
+
+                if ((divX2 < valX) && (divY2 < valY) && (backgroundX <= borderRight && backgroundY <= borderBottom)) {
+                    backgroundX -= 10;
+                    backgroundY -= 10;
+
+                    $('.imgHolder').css('top', backgroundY);
+                    $('.imgHolder').css('left', backgroundX);
+                }
+
+                backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
+                $('.imgHolder').css('top', backgroundY);
+                $('.imgHolder').css('left', backgroundX);
+            }, 500);
+            }
+        checkPos();
 
     });
     
 });
 
-
-
+function clockOne() { setInterval(moveTopLeft(), 500);}
+function moveTopLeft() {
+    backgroundX += 1;
+    backgroundY += 1;
+    
+    $('.imgHolder').css('top', backgroundY);
+    $('.imgHolder').css('left', backgroundX);
+}
