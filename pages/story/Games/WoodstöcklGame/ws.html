@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="../../../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../../../Scripts/jquery-ui.min.js"></script>
     <link href="../../../../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../../../../default/default.css" rel="stylesheet" />
 
@@ -25,7 +26,7 @@
         </div>
     </nav>
     <div>
-        <img class="imgHolder" src="../../../../img/panorama.jpg" />
+        <img class="imgHolder" src="../../../../img/panorama.jpg" id="makeMeDraggable" />
     </div>
     
 
@@ -35,15 +36,3 @@
 </html>
 
 
-<!--jQuery(function($) {
-    var currentMousePos = { x: -1, y: -1 };
-    $(document).mousemove(function(event) {
-        currentMousePos.x = event.pageX;
-        currentMousePos.y = event.pageY;
-    });
-
-    // ELSEWHERE, your code that needs to know the mouse position without an event
-    if (currentMousePos.x < 10) {
-        // ....
-    }
-});-->

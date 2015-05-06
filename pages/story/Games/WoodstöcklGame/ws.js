@@ -28,7 +28,7 @@ function homeNav() {
 var imgPanorama;
 var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
-   
+   $('#makeMeDraggable').draggable();
     imgPanorama = $('.imgHolder');
     
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
     //  ev.clientY = y%
     // is what we need
 
-    $(imgPanorama).mousemove(function (ev) {
+/*    $(imgPanorama).mousemove(function (ev) {
 
 
         function checkPos() {
@@ -103,15 +103,15 @@ $(document).ready(function () {
             }
         checkPos();
 
-    });
+    });*/
     
 });
 
-function clockOne() { setInterval(moveTopLeft(), 500);}
+/*function clockOne() { setInterval(moveTopLeft(), 500);}
 function moveTopLeft() {
     backgroundX += 1;
     backgroundY += 1;
     
     $('.imgHolder').css('top', backgroundY);
     $('.imgHolder').css('left', backgroundX);
-}
+}*/
