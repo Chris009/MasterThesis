@@ -1,11 +1,11 @@
-﻿.imgHolder {
-    
-    
-    
+﻿.imgHolder {   
     position: absolute;
  
 }
 
+#containment{
+    position: absolute;
+}
 
 .choice {
     height: 280px;
@@ -27,13 +27,7 @@
     z-index: 1;
 }
 
-.img1 {
-    position: absolute;
-}
 
-.img2 {
-    position: absolute;
-}
 
 
 

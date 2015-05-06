@@ -28,11 +28,31 @@ function homeNav() {
 var imgPanorama;
 var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
-   $('#makeMeDraggable').draggable();
-    imgPanorama = $('.imgHolder');
+imgPanorama = $('.imgHolder');
+
+var widthContainer = 2*($(imgPanorama).width() - $(window).width());
+var heightContainer = 2*($(imgPanorama).height() - $(window).height());
+
+$("#containment").width(widthContainer);
+$("#containment").height(heightContainer);
+
+/*var leftX = $(window).width() - $(imgPanorama).width();
+var topY = $(window).height() - $(imgPanorama).height();
+var rightX = $(imgPanorama).width() - $(window).width();
+var bottomY = $(imgPanorama).height() - $(window).height();*/
+
+
+
+   $('#makeMeDraggable').draggable( {
+    containment: '#containment' ,
+    cursor: 'move'
+  } );
+
+
+    
     
 
-    divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
+  /*  divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
     divYstart = parseFloat($(imgPanorama).css('height')) * -0.3;
         
     backgroundX = divXstart;
@@ -49,7 +69,7 @@ $(document).ready(function () {
     var divX1 = borderRight * 0.1;
     var divY1 = borderBottom * 0.1;
     var divX2 = borderRight * 0.7;
-    var divY2 = borderBottom * 0.7;
+    var divY2 = borderBottom * 0.7;*/
 
     // hint
     //  mouse on the right background position for x img = 100%
