@@ -3,8 +3,16 @@
  
 }
 
+.stop-scrolling {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+}
+
 #containment{
     position: absolute;
+    background-color:aqua;
 }
 
 .choice {

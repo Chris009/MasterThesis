@@ -28,13 +28,24 @@ function homeNav() {
 var imgPanorama;
 var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
+
+$("body").addClass("stop-scrolling");
+
 imgPanorama = $('.imgHolder');
 
-var widthContainer = 2*($(imgPanorama).width() - $(window).width());
-var heightContainer = 2*($(imgPanorama).height() - $(window).height());
+$(imgPanorama).css({ top: 0, left: 0 });
+
+var widthContainer = ($(imgPanorama).width() + ($(imgPanorama).width() - $(window).width()));
+var heightContainer = ($(imgPanorama).height() + ($(imgPanorama).height()  - $(window).height()));
 
 $("#containment").width(widthContainer);
 $("#containment").height(heightContainer);
+
+var containerPosTop = (-heightContainer / 2) + ($(window).height() / 2);
+var containerPosLeft = (-widthContainer / 2) + ($(window).width() / 2);
+
+//$("#containment").parent().css({ position: 'relative' });
+$("#containment").css({ top: containerPosTop, left: containerPosLeft, position: 'absolute' });
 
 /*var leftX = $(window).width() - $(imgPanorama).width();
 var topY = $(window).height() - $(imgPanorama).height();
