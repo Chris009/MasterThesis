@@ -1,6 +1,20 @@
-﻿.imgHolder {   
-    position: absolute;
- 
+﻿.doorNo1{
+    position:absolute;
+    height: 733px;
+    width: 258px;
+    border: 3px solid green;
+    top: 547Px;
+    left: 1747px;
+    
+}
+
+.imgHolder {   
+    position: absolute;  
+}
+
+.imageCup{
+    width: 4844px;
+   height: 2480px;
 }
 
 .stop-scrolling {

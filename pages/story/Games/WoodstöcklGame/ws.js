@@ -29,58 +29,60 @@ var imgPanorama;
 var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
 
-$("body").addClass("stop-scrolling");
+    $("body").addClass("stop-scrolling");
 
-imgPanorama = $('.imgHolder');
+    imgPanorama = $('.imgHolder');
 
-$(imgPanorama).css({ top: 0, left: 0 });
-
-var widthContainer = ($(imgPanorama).width() + ($(imgPanorama).width() - $(window).width()));
-var heightContainer = ($(imgPanorama).height() + ($(imgPanorama).height()  - $(window).height()));
-
-$("#containment").width(widthContainer);
-$("#containment").height(heightContainer);
-
-var containerPosTop = (-heightContainer / 2) + ($(window).height() / 2);
-var containerPosLeft = (-widthContainer / 2) + ($(window).width() / 2);
-
-//$("#containment").parent().css({ position: 'relative' });
-$("#containment").css({ top: containerPosTop, left: containerPosLeft, position: 'absolute' });
-
-/*var leftX = $(window).width() - $(imgPanorama).width();
-var topY = $(window).height() - $(imgPanorama).height();
-var rightX = $(imgPanorama).width() - $(window).width();
-var bottomY = $(imgPanorama).height() - $(window).height();*/
+    $(imgPanorama).css({ top: 1100, left: 2000 });
 
 
 
-   $('#makeMeDraggable').draggable( {
-    containment: '#containment' ,
-    cursor: 'move'
-  } );
+    var widthContainer = ($(imgPanorama).width() + ($(imgPanorama).width() - $(window).width()));
+    var heightContainer = ($(imgPanorama).height() + ($(imgPanorama).height() - $(window).height()));
+
+    $("#containment").width(widthContainer);
+    $("#containment").height(heightContainer);
+
+    var containerPosTop = (-heightContainer / 2) + ($(window).height() / 2);
+    var containerPosLeft = (-widthContainer / 2) + ($(window).width() / 2);
+
+    //$("#containment").parent().css({ position: 'relative' });
+    $("#containment").css({ top: containerPosTop, left: containerPosLeft, position: 'absolute' });
+
+    /*var leftX = $(window).width() - $(imgPanorama).width();
+    var topY = $(window).height() - $(imgPanorama).height();
+    var rightX = $(imgPanorama).width() - $(window).width();
+    var bottomY = $(imgPanorama).height() - $(window).height();*/
 
 
-    
-    
 
-  /*  divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
-    divYstart = parseFloat($(imgPanorama).css('height')) * -0.3;
-        
-    backgroundX = divXstart;
-    backgroundY = divYstart;
-    //backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-    $('.imgHolder').css('top', backgroundY);
-    $('.imgHolder').css('left', backgroundX);
+    $('#makeMeDraggable').draggable({
+        containment: '#containment',
+        cursor: 'move'
+    });
 
-    var borderTop = 0;
-    var borderLeft = 0;
-    var borderRight = $(window).width();
-    var borderBottom = $(window).height();
 
-    var divX1 = borderRight * 0.1;
-    var divY1 = borderBottom * 0.1;
-    var divX2 = borderRight * 0.7;
-    var divY2 = borderBottom * 0.7;*/
+
+
+
+    /*  divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
+      divYstart = parseFloat($(imgPanorama).css('height')) * -0.3;
+          
+      backgroundX = divXstart;
+      backgroundY = divYstart;
+      //backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
+      $('.imgHolder').css('top', backgroundY);
+      $('.imgHolder').css('left', backgroundX);
+  
+      var borderTop = 0;
+      var borderLeft = 0;
+      var borderRight = $(window).width();
+      var borderBottom = $(window).height();
+  
+      var divX1 = borderRight * 0.1;
+      var divY1 = borderBottom * 0.1;
+      var divX2 = borderRight * 0.7;
+      var divY2 = borderBottom * 0.7;*/
 
     // hint
     //  mouse on the right background position for x img = 100%
@@ -98,44 +100,44 @@ var bottomY = $(imgPanorama).height() - $(window).height();*/
     //  ev.clientY = y%
     // is what we need
 
-/*    $(imgPanorama).mousemove(function (ev) {
-
-
-        function checkPos() {
-        var valX = ev.clientX;
-        var valY = ev.clientY;
-
-        
-
-            var setInter = setInterval(function () {
-                if ((divX1 > valX) && (divY1 > valY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
-                    backgroundX += 1;
-                    backgroundY += 1;
-
-                    $('.imgHolder').css('top', backgroundY);
-                    $('.imgHolder').css('left', backgroundX);
-                }
-
-
-
-
-                if ((divX2 < valX) && (divY2 < valY) && (backgroundX <= borderRight && backgroundY <= borderBottom)) {
-                    backgroundX -= 10;
-                    backgroundY -= 10;
-
-                    $('.imgHolder').css('top', backgroundY);
-                    $('.imgHolder').css('left', backgroundX);
-                }
-
-                backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
-                $('.imgHolder').css('top', backgroundY);
-                $('.imgHolder').css('left', backgroundX);
-            }, 500);
-            }
-        checkPos();
-
-    });*/
+    /*    $(imgPanorama).mousemove(function (ev) {
     
+    
+            function checkPos() {
+            var valX = ev.clientX;
+            var valY = ev.clientY;
+    
+            
+    
+                var setInter = setInterval(function () {
+                    if ((divX1 > valX) && (divY1 > valY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
+                        backgroundX += 1;
+                        backgroundY += 1;
+    
+                        $('.imgHolder').css('top', backgroundY);
+                        $('.imgHolder').css('left', backgroundX);
+                    }
+    
+    
+    
+    
+                    if ((divX2 < valX) && (divY2 < valY) && (backgroundX <= borderRight && backgroundY <= borderBottom)) {
+                        backgroundX -= 10;
+                        backgroundY -= 10;
+    
+                        $('.imgHolder').css('top', backgroundY);
+                        $('.imgHolder').css('left', backgroundX);
+                    }
+    
+                    backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
+                    $('.imgHolder').css('top', backgroundY);
+                    $('.imgHolder').css('left', backgroundX);
+                }, 500);
+                }
+            checkPos();
+    
+        });*/
+
 });
 
 /*function clockOne() { setInterval(moveTopLeft(), 500);}
