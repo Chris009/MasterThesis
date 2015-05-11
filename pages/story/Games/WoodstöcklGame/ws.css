@@ -1,39 +1,60 @@
-﻿.doorNo1{
-    position:absolute;
+﻿.doorNo1 {
+    position: absolute;
     height: 733px;
     width: 258px;
     border: 3px solid green;
     top: 547Px;
     left: 1747px;
+
+    -moz-transform: matrix(1, 0.03, -.015, 1,0, 0);
+    -ms-transform: matrix(1, 0.03, -.015, 1,0, 0);
+    -o-transform: matrix(1, 0.03, -.015, 1,0, 0);
+    -webkit-transform: matrix(1, 0.03, -.015, 1,0, 0);
+    transform: matrix(1, 0.03, -.015, 1,0, 0);
+}
+
+.doorNo2 {
+    position: absolute;
+    top: 348px;
+    left: 733px;
+    height: 285px;
+    width: 211px;
+    border: 3px solid green;
     
+    -ms-transform: matrix(1, -0.1, -.03, 1, 0, 0);
+    -webkit-transform: matrix(1, -0.1, -.03, 1, 0, 0);
+    -moz-transform: matrix(1, -0.1, -.03, 1, 0, 0));
+    -o-transform: matrix(1, -0.1, -.03, 1, 0, 0);
+    transform: matrix(1, -0.1, -.03, 1, 0, 0);
 }
 
-.imgHolder {   
-    position: absolute;  
+
+.imgHolder {
+    position: absolute;
 }
 
-.imageCup{
+.imageCup {
     width: 4844px;
-   height: 2480px;
+    height: 2480px;
 }
 
 .stop-scrolling {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
 }
 
-#containment{
+#containment {
     position: absolute;
-    background-color:aqua;
+    background-color: aqua;
 }
 
 .choice {
     height: 280px;
     width: 280px;
     margin: 5px;
-    z-index:2;
+    z-index: 2;
 }
 
     .choice:hover {
@@ -80,11 +101,11 @@ body {
     height: 87px;
     background-color: rgba(0,0,0,0.6);
     font-size: 20px;
-    color:white;
-    white-space:normal;
-    text-align:justify;
+    color: white;
+    white-space: normal;
+    text-align: justify;
 }
 
-.order:hover {
+    .order:hover {
         border: 5px solid green;
     }
