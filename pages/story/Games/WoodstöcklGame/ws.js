@@ -32,7 +32,6 @@ $(document).ready(function () {
     $("body").addClass("stop-scrolling");
 
     imgPanorama = $('.imgHolder');
-
     $(imgPanorama).css({ top: 1100, left: 2000 });
 
 
@@ -49,11 +48,7 @@ $(document).ready(function () {
     //$("#containment").parent().css({ position: 'relative' });
     $("#containment").css({ top: containerPosTop, left: containerPosLeft, position: 'absolute' });
 
-    /*var leftX = $(window).width() - $(imgPanorama).width();
-    var topY = $(window).height() - $(imgPanorama).height();
-    var rightX = $(imgPanorama).width() - $(window).width();
-    var bottomY = $(imgPanorama).height() - $(window).height();*/
-
+   
 
 
     $('#makeMeDraggable').draggable({
