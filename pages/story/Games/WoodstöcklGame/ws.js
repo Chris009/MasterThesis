@@ -29,6 +29,20 @@ var imgPanorama;
 var divXstart, divYstart, backgroundX, backgroundY;
 $(document).ready(function () {
 
+ 
+   	resize();
+
+
+    $('#makeMeDraggable').draggable({
+        containment: '#containment',
+        cursor: 'move'
+    });
+
+   
+});
+
+
+function resize(){
     $("body").addClass("stop-scrolling");
 
     imgPanorama = $('.imgHolder');
@@ -45,101 +59,22 @@ $(document).ready(function () {
     var containerPosTop = (-heightContainer / 2) + ($(window).height() / 2);
     var containerPosLeft = (-widthContainer / 2) + ($(window).width() / 2);
 
-    //$("#containment").parent().css({ position: 'relative' });
     $("#containment").css({ top: containerPosTop, left: containerPosLeft, position: 'absolute' });
+}
 
-   
+var panoHeight = $('.imgHolder').height();
+var panoWidth = $('.imgHolder').width();
+var aspectRatio = panoWidth / panoHeight;
 
+function zoomIn(){
 
-    $('#makeMeDraggable').draggable({
-        containment: '#containment',
-        cursor: 'move'
-    });
+	$('.imgHolder').width() = $('.imgHolder').width() * 1.1;
+	$('.imgHolder').height() = $('.imgHolder').width() / aspectRatio; 
+	resize();
+}
 
-
-
-
-
-    /*  divXstart = parseFloat($(imgPanorama).css('width')) * -0.2;
-      divYstart = parseFloat($(imgPanorama).css('height')) * -0.3;
-          
-      backgroundX = divXstart;
-      backgroundY = divYstart;
-      //backgroundPos = backgroundX + 'px' + ' ' + backgroundY + 'px';
-      $('.imgHolder').css('top', backgroundY);
-      $('.imgHolder').css('left', backgroundX);
-  
-      var borderTop = 0;
-      var borderLeft = 0;
-      var borderRight = $(window).width();
-      var borderBottom = $(window).height();
-  
-      var divX1 = borderRight * 0.1;
-      var divY1 = borderBottom * 0.1;
-      var divX2 = borderRight * 0.7;
-      var divY2 = borderBottom * 0.7;*/
-
-    // hint
-    //  mouse on the right background position for x img = 100%
-    //  mouse on         the left background position for x img = 0
-    //  center background position for x img = 50%
-
-    //  mouse on the top background position for y img = 0
-    //  mouse on the bottom background position for y img = 100%
-    //  center background position for y img = 50%
-
-    // now if
-    //  divX       = 100%
-    //  ev.clientX = x%
-    //  divY       = 100%
-    //  ev.clientY = y%
-    // is what we need
-
-    /*    $(imgPanorama).mousemove(function (ev) {
-    
-    
-            function checkPos() {
-            var valX = ev.clientX;
-            var valY = ev.clientY;
-    
-            
-    
-                var setInter = setInterval(function () {
-                    if ((divX1 > valX) && (divY1 > valY) && (backgroundX <= borderLeft && backgroundY <= borderTop)) {
-                        backgroundX += 1;
-                        backgroundY += 1;
-    
-                        $('.imgHolder').css('top', backgroundY);
-                        $('.imgHolder').css('left', backgroundX);
-                    }
-    
-    
-    
-    
-                    if ((divX2 < valX) && (divY2 < valY) && (backgroundX <= borderRight && backgroundY <= borderBottom)) {
-                        backgroundX -= 10;
-                        backgroundY -= 10;
-    
-                        $('.imgHolder').css('top', backgroundY);
-                        $('.imgHolder').css('left', backgroundX);
-                    }
-    
-                    backgroundPos = backgroundX + '%' + ' ' + backgroundY + '%';
-                    $('.imgHolder').css('top', backgroundY);
-                    $('.imgHolder').css('left', backgroundX);
-                }, 500);
-                }
-            checkPos();
-    
-        });*/
-
-});
-
-/*function clockOne() { setInterval(moveTopLeft(), 500);}
-function moveTopLeft() {
-    backgroundX += 1;
-    backgroundY += 1;
-    
-    $('.imgHolder').css('top', backgroundY);
-    $('.imgHolder').css('left', backgroundX);
-}*/
+function zoomOut(){
+	$('.imgHolder').width() = $('.imgHolder').width() * 0.9;
+	$('.imgHolder').height() = $('.imgHolder').width() / aspectRatio; 
+	resize();
+}
